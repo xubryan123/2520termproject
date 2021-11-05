@@ -1,4 +1,5 @@
 let database = require("../database");
+const passport = require('../middleware/passport')
 
 let authController = {
   login: (req, res) => {
@@ -10,7 +11,7 @@ let authController = {
   },
 
   loginSubmit: (req, res) => {
-    // implement
+    pass
   },
 
   registerSubmit: (req, res) => {
