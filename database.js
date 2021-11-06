@@ -1,40 +1,43 @@
 let Database = {
-    cindy: {
-        reminders: [{id: 1, title: "abc", description: "abcabc", completed: false}, {id: 2, title: "abcd", description: "abcabcd", completed: false}]
-    },
-    alex: {
-        reminders: []
-    } 
-}
+  cindy: {
+    reminders: [
+      { id: 1, title: "abc", description: "abcabc", completed: false },
+      { id: 2, title: "abcd", description: "abcabcd", completed: false },
+    ],
+  },
+  alex: {
+    reminders: [],
+  },
+};
 
 let userInfo = {
-    cindy: {
-        id: 1,
-        name: 'Cindy',
-        email:'cindy@gmail.com',
-        password: 'cindy1'
-    }
-}
+  Cindy: {
+    id: 1,
+    name: "Cindy",
+    email: "cindy@gmail.com",
+    password: "cindy1",
+  },
+};
 
 const userModel = {
-    findOne: (email) => {
-        info_list = Object.values(userInfo)
-        for (let user of info_list){
-            if (user.email === `${email}`){
-                return user
-            }
-        }
-        throw new Error(`Couldn't find user with id: ${email}`);
-    },
-    findById: (id) => {
-        info_list = Object.values(userInfo)
-      for (let user of info_list){
-          if (user.id === id){
-              return user
-          }
+  findOne: (email) => {
+    info_list = Object.values(userInfo);
+    for (let user of info_list) {
+      if (user.email === `${email}`) {
+        return user;
       }
-      throw new Error(`Couldn't find user with id: ${id}`);
+    }
+    throw new Error(`Couldn't find user with id: ${email}`);
+  },
+  findById: (id) => {
+    info_list = Object.values(userInfo);
+    for (let user of info_list) {
+      if (user.id === id) {
+        return user;
       }
-  };
-  
-  module.exports = { Database, userModel };
+    }
+    throw new Error(`Couldn't find user with id: ${id}`);
+  },
+};
+
+module.exports = { Database, userModel, userInfo };
