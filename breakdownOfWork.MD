@@ -15,6 +15,12 @@ I worked on the following tasks:
 
 Week of Nov 5
 
+Jovan Sandhu:
+I worked on the following tasks:
+1. Watched passport video
+2. Researched how to implement registration functionality
+3. Register - Completed implementation of registering a new user. This task is responsible for allowing the user to create an account and logging in
+
 Bryan Xu:
 I worked on the following tasks:
 1. Watched passport video
