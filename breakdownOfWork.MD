@@ -27,3 +27,11 @@ I worked on the following tasks:
 2. Moved and integrated chunks of passport starter code into reminder app
 3. Login - Completed implementation of login functionality. This task is responsible for allowing the user to login and creating session.
 4. Ensured all pages check authentication of user
+
+Week of Nov 12
+
+Jovan Sandhu:
+I worked on the following tasks:
+1. Created admin page
+2. Made admin page only accesible to users with role admin
+3. Added ability to delete sessions from admin page

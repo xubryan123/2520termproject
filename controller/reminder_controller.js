@@ -1,9 +1,21 @@
 let database = require("../database").Database;
-const session = require('express-session')
+// const session = require("express-session");
 
 let remindersController = {
+  destroy: (req, res) => {
+    let Session = req.params.session;
+    req.sessionStore.destroy(Session);
+    res.redirect("/admin");
+  },
+
   admin: (req, res) => {
-    res.render("auth/admin");
+    req.sessionStore.all((err, session) => {
+      res.render("auth/admin", { sessions: session });
+
+      if (err) {
+        console.log(err);
+      }
+    });
   },
 
   list: (req, res) => {

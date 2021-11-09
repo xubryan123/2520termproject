@@ -1,2 +1,9 @@
 <h1>Admin Page</h1>
-<p></p>
+<br />
+<h2>Sessions</h2>
+<ul>
+  <% for (session in sessions) { %>
+  <li><a href=<%= "/admin/" + session %>><%= session %></a></li>
+  <% } %>
+</ul>
+
