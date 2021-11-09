@@ -25,7 +25,6 @@ let authController = {
       password: req.body.password,
     };
     database.userInfo[name] = newUser;
-    console.log(database.userInfo);
     res.redirect("/login");
   },
 };

@@ -8,6 +8,7 @@ const ejsLayouts = require("express-ejs-layouts");
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
 const { ensureAuthenticated, forwardAuthenticated } = require('./middleware/checkAuth')
+const { ensureAdmin } = require('./middleware/checkAdmin')
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -52,6 +53,8 @@ app.post("/reminder/update/:id", ensureAuthenticated,reminderController.update);
 
 // Implement this yourself
 app.post("/reminder/delete/:id", ensureAuthenticated,reminderController.delete);
+
+app.get("/admin", ensureAdmin, reminderController.admin)
 
 // Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
 app.get("/register", forwardAuthenticated, authController.register);

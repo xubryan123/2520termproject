@@ -1,11 +1,11 @@
 let Database = {
-  cindy: {
+  Cindy: {
     reminders: [
       { id: 1, title: "abc", description: "abcabc", completed: false },
       { id: 2, title: "abcd", description: "abcabcd", completed: false },
     ],
   },
-  alex: {
+  Alex: {
     reminders: [],
   },
 };
@@ -16,6 +16,14 @@ let userInfo = {
     name: "Cindy",
     email: "cindy@gmail.com",
     password: "cindy1",
+    role: "admin",
+  },
+  Alex: {
+    id: 2,
+    name: "Alex",
+    email: "alex@gmail.com",
+    password: "alex1",
+    role: "user",
   },
 };
 
