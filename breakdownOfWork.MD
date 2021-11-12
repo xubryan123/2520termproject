@@ -35,3 +35,6 @@ I worked on the following tasks:
 1. Created admin page
 2. Made admin page only accesible to users with role admin
 3. Added ability to delete sessions from admin page
+4. Implemented users only being able to see own reminders
+5. Implemented users can only change own reminders
+6. Implemented users can only delete own reminders
