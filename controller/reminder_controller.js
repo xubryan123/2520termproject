@@ -20,6 +20,9 @@ let remindersController = {
 
   list: (req, res) => {
     let user = req.user.name;
+    // if (database[user].reminders.length === 0) {
+    //   res.render("reminder/index");
+    // }
     res.render("reminder/index", { reminders: database[user].reminders });
   },
 

@@ -23,8 +23,16 @@ let authController = {
       name: name,
       email: req.body.email,
       password: req.body.password,
+      role: "user"
     };
     database.userInfo[name] = newUser;
+    let welcomeReminder = {
+      id: 1,
+      title: 'Welcome Reminder',
+      description: 'Thank you for registering your account, this is just a welcome reminder!',
+      completed: true,
+    }
+    database.Database[name] = {reminders: [welcomeReminder]}
     res.redirect("/login");
   },
 };
