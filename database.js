@@ -37,7 +37,7 @@ const userModel = {
         return user;
       }
     }
-    throw new Error(`Couldn't find user with id: ${email}`);
+    throw new Error(`Couldn't find user with email: ${email}`);
   },
   findById: (id) => {
     info_list = Object.values(userInfo);

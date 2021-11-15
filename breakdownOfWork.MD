@@ -38,3 +38,4 @@ I worked on the following tasks:
 4. Implemented users only being able to see own reminders
 5. Implemented users can only change own reminders
 6. Implemented users can only delete own reminders
+7. Made registering as a new user add userInfo into userInfo database and create a welcome reminder

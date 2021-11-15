@@ -20,9 +20,6 @@ let remindersController = {
 
   list: (req, res) => {
     let user = req.user.name;
-    // if (database[user].reminders.length === 0) {
-    //   res.render("reminder/index");
-    // }
     res.render("reminder/index", { reminders: database[user].reminders });
   },
 
@@ -67,11 +64,16 @@ let remindersController = {
   update: (req, res) => {
     let reminderToFind = req.params.id;
     let user = req.user.name;
+    if (req.body.completed == 'true') {
+      req.body.completed = true
+    } else {
+      req.body.completed = false
+    }
     let updatedReminder = {
       id: reminderToFind,
       title: req.body.title,
       description: req.body.description,
-      completed: Boolean(req.body.completed),
+      completed: req.body.completed,
     };
     let searchResult = database[user].reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
