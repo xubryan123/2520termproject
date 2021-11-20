@@ -1,7 +1,13 @@
 let database = require("../database").Database;
+let userInfo = require("../database").userInfo;
 const session = require("express-session");
 
 let remindersController = {
+
+  settings: (req, res) => {
+    res.render("auth/settings")
+  },
+
   destroy: (req, res) => {
     let Session = req.params.session;
     req.sessionStore.destroy(Session);
@@ -20,7 +26,7 @@ let remindersController = {
 
   list: (req, res) => {
     let user = req.user.name;
-    res.render("reminder/index", { reminders: database[user].reminders });
+    res.render("reminder/index", { reminders: database[user].reminders, picture: userInfo[user].picture });
   },
 
   new: (req, res) => {

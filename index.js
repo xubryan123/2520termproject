@@ -67,6 +67,8 @@ app.post(
 app.get("/admin/", ensureAdmin, reminderController.admin);
 app.get("/admin/:session", reminderController.destroy);
 
+app.get("/profile/settings", reminderController.settings)
+
 
 
 // Fix this to work with passport! The registration does not need to work, you can use the fake database for this.

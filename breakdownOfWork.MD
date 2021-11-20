@@ -39,3 +39,11 @@ I worked on the following tasks:
 5. Implemented users can only change own reminders
 6. Implemented users can only delete own reminders
 7. Made registering as a new user add userInfo into userInfo database and create a welcome reminder
+
+Week of Nov 19
+
+Jovan Sandhu:
+I worked on the following tasks:
+1. Looked at unsplash documentation for a long time
+2. Implemented assigning a random profile picture to user apon registering
+3. Created profile settings page where user can change profile picture

@@ -18,6 +18,7 @@ let userInfo = {
     name: "Cindy",
     email: "cindy@gmail.com",
     password: "cindy1",
+    picture: "https://images.unsplash.com/photo-1635005454347-87805c9ecf1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzQxODB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Mzc0NDA4OTM&ixlib=rb-1.2.1&q=80&w=200",
     role: "admin",
   },
   Alex: {
@@ -25,6 +26,7 @@ let userInfo = {
     name: "Alex",
     email: "alex@gmail.com",
     password: "alex1",
+    picture: "https://images.unsplash.com/photo-1635434033429-827adfad864b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzQxODB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Mzc0NDA5MDU&ixlib=rb-1.2.1&q=80&w=200",
     role: "user",
   },
 };
