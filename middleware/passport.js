@@ -1,6 +1,10 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const userController = require("../controller/userController");
+const GitHubStrategy = require('passport-github2').Strategy;
+const process = require("process");
+const dots = require("dotenv").config();
+
 const localLogin = new LocalStrategy(
   {
     usernameField: "email",
@@ -16,12 +20,26 @@ const localLogin = new LocalStrategy(
   }
 );
 
+let githubLogin = new GitHubStrategy({
+  clientID: process.env.clientID,
+  clientSecret: process.env.clientSecret,
+  callbackURL: "http://localhost:3001/auth/github/callback"
+},
+function(accessToken, refreshToken, profile, done) {
+  // console.log(profile)
+  let user = userController.getUserByGithubIdOrCreate(profile)
+  // console.log(user)
+  return done(null, user)
+}
+);
+
 passport.serializeUser(function (user, done) {
-  done(null, user["id"]);
+  // console.log(user)
+  done(null, user);
 }); //where session is created, user from localstrategy is sent here, able to access current user using req.user, user is entire userInfo object
 
-passport.deserializeUser(function (id, done) {
-  let user = userController.getUserById(id);
+passport.deserializeUser(function (returning, done) {
+  let user = userController.getUserById(returning.id);
   if (user) {
     done(null, user);
   } else {
@@ -29,4 +47,4 @@ passport.deserializeUser(function (id, done) {
   }
 });
 
-module.exports = passport.use(localLogin);
+module.exports = passport.use(localLogin).use(githubLogin);

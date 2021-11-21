@@ -16,7 +16,9 @@ let userInfo = {
     name: "Cindy",
     email: "cindy@gmail.com",
     password: "cindy1",
+    role: "admin"
   },
+  // 78901382: "Github"
 };
 
 const userModel = {
@@ -37,7 +39,7 @@ const userModel = {
       }
     }
     throw new Error(`Couldn't find user with id: ${id}`);
-  },
+  }
 };
 
 module.exports = { Database, userModel, userInfo };

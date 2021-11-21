@@ -7,7 +7,7 @@ const session = require("express-session");
 const ejsLayouts = require("express-ejs-layouts");
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
-const { ensureAuthenticated, forwardAuthenticated } = require('./middleware/checkAuth')
+const { ensureAuthenticated, forwardAuthenticated , isAdmin} = require('./middleware/checkAuth')
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -47,6 +47,10 @@ app.get("/reminder/:id/edit", ensureAuthenticated, reminderController.edit);
 
 app.post("/reminder/", ensureAuthenticated,reminderController.create);
 
+// app.get("/adminDashboard", isAdmin,(req, res) => {
+//   res.render("adminDashboard")
+// })
+
 // Implement this yourself
 app.post("/reminder/update/:id", ensureAuthenticated,reminderController.update);
 
@@ -65,8 +69,24 @@ passport.authenticate("local", {
 })
 ,authController.loginSubmit);
 
+app.get('/auth/github',
+  passport.authenticate('github', { scope: [ 'user:email' ] }));
+
+// GET /auth/github/callback
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  If authentication fails, the user will be redirected back to the
+//   login page.  Otherwise, the primary route function will be called,
+//   which, in this example, will redirect the user to the home page.
+app.get('/auth/github/callback', 
+passport.authenticate('github'),
+function(req, res) {
+  res.redirect('/reminders');
+});
+
 app.listen(3001, function () {
   console.log(
     "Server running. Visit: localhost:3001/reminders in your browser 🚀"
   );
 });
+
+//, { failureRedirect: '/login' })
