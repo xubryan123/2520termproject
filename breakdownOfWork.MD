@@ -40,11 +40,22 @@ I worked on the following tasks:
 6. Implemented users can only delete own reminders
 7. Made registering as a new user add userInfo into userInfo database and create a welcome reminder
 
+Bryan Xu:
+I worked on the following tasks:
+1. Watched github login tutorial video
+2. Read passport-github2 documentation
+3. Worked on implementing github login functionality
+
 Week of Nov 19
 
 Jovan Sandhu:
 I worked on the following tasks:
 1. Looked at unsplash documentation for a long time
-2. Implemented assigning a random profile picture to user apon registering
+2. Implemented assigning a random profile picture to user upon registering
 3. Created profile settings page where user can change profile picture
 4. Added the ability to upload own profile picture
+
+Bryan Xu:
+I worked on the following tasks:
+1. Completed github login implementation
+2. Fixed bugs for github login working with new profile picture and admin functionality
