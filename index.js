@@ -7,9 +7,6 @@ const session = require("express-session");
 const ejsLayouts = require("express-ejs-layouts");
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
-<<<<<<< HEAD
-const { ensureAuthenticated, forwardAuthenticated , isAdmin} = require('./middleware/checkAuth')
-=======
 const {
   ensureAuthenticated,
   forwardAuthenticated,
@@ -33,7 +30,6 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
 });
->>>>>>> be9dec0cfafeb1c19bce45c49232304cda665e81
 
 app.use(express.static(path.join(__dirname, "public")));
 
