@@ -47,3 +47,4 @@ I worked on the following tasks:
 1. Looked at unsplash documentation for a long time
 2. Implemented assigning a random profile picture to user apon registering
 3. Created profile settings page where user can change profile picture
+4. Added the ability to upload own profile picture

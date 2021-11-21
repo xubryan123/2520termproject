@@ -3,9 +3,8 @@ let userInfo = require("../database").userInfo;
 const session = require("express-session");
 
 let remindersController = {
-
   settings: (req, res) => {
-    res.render("auth/settings")
+    res.render("auth/settings");
   },
 
   destroy: (req, res) => {
@@ -26,7 +25,10 @@ let remindersController = {
 
   list: (req, res) => {
     let user = req.user.name;
-    res.render("reminder/index", { reminders: database[user].reminders, picture: userInfo[user].picture });
+    res.render("reminder/index", {
+      reminders: database[user].reminders,
+      picture: userInfo[user].picture,
+    });
   },
 
   new: (req, res) => {
@@ -70,10 +72,10 @@ let remindersController = {
   update: (req, res) => {
     let reminderToFind = req.params.id;
     let user = req.user.name;
-    if (req.body.completed == 'true') {
-      req.body.completed = true
+    if (req.body.completed == "true") {
+      req.body.completed = true;
     } else {
-      req.body.completed = false
+      req.body.completed = false;
     }
     let updatedReminder = {
       id: reminderToFind,

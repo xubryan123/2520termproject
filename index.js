@@ -12,6 +12,24 @@ const {
   forwardAuthenticated,
 } = require("./middleware/checkAuth");
 const { ensureAdmin } = require("./middleware/checkAdmin");
+const multer = require("multer");
+const imgur = require("imgur");
+const fs = require("fs");
+let userInfo = require("./database").userInfo;
+
+const storage = multer.diskStorage({
+  destination: "./uploads",
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({
+  storage: storage,
+});
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -36,6 +54,7 @@ app.use(
 app.use(express.json());
 app.use(ejsLayouts);
 app.use(express.urlencoded({ extended: true }));
+app.use(upload.any());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -65,11 +84,9 @@ app.post(
   reminderController.delete
 );
 app.get("/admin/", ensureAdmin, reminderController.admin);
-app.get("/admin/:session", reminderController.destroy);
+app.get("/admin/:session", ensureAdmin, reminderController.destroy);
 
-app.get("/profile/settings", reminderController.settings)
-
-
+app.get("/profile/settings", ensureAuthenticated, reminderController.settings);
 
 // Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
 app.get("/register", forwardAuthenticated, authController.register);
@@ -84,6 +101,18 @@ app.post(
   }),
   authController.loginSubmit
 );
+
+app.post("/uploads/", async (req, res) => {
+  let user = req.user.name;
+  const file = req.files[0];
+  try {
+    const url = await imgur.uploadFile(`./uploads/${file.filename}`);
+    userInfo[user].picture = url.link;
+    fs.unlinkSync(`./uploads/${file.filename}`);
+  } catch (error) {
+    console.log("error", error);
+  }
+});
 
 app.listen(3001, function () {
   console.log(
