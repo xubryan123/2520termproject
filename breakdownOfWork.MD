@@ -59,3 +59,4 @@ Bryan Xu:
 I worked on the following tasks:
 1. Completed github login implementation
 2. Fixed bugs for github login working with new profile picture and admin functionality
+3. Randomized id for create function to fix duplicate id issue

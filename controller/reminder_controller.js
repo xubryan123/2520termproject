@@ -51,12 +51,13 @@ let remindersController = {
   create: (req, res) => {
     let user = req.user.name;
     let reminder = {
-      id: database[user].reminders.length + 1,
+      id: parseInt(Math.random() * 1000),
       title: req.body.title,
       description: req.body.description,
       completed: false,
     };
     database[user].reminders.push(reminder);
+    console.log(database[user].reminders)
     res.redirect("/reminders");
   },
 
