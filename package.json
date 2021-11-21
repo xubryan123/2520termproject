@@ -20,9 +20,16 @@
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
+<<<<<<< HEAD
     "express-session": "^1.17.1",
+=======
+    "express-session": "^1.17.2",
+    "imgur": "^1.0.2",
+>>>>>>> be9dec0cfafeb1c19bce45c49232304cda665e81
     "method-override": "^2.3.7",
     "mongoose": "^4.7.7",
+    "multer": "^1.4.3",
+    "node-fetch": "^3.1.0",
     "nodemon": "^1.11.0",
     "passport": "^0.4.1",
     "passport-github2": "^0.1.12",
