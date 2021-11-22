@@ -2,6 +2,8 @@ let database = require("../database");
 const passport = require("../middleware/passport");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
+const dots = require("dotenv").config();
+
 
 let authController = {
   login: (req, res) => {
@@ -17,8 +19,8 @@ let authController = {
   },
 
   registerSubmit: (req, res) => {
-    let clientID = "Oj4_8Z7nidXNQDo03tl0XojKr9TovnTq498VJKET_O8";
-    let endPoint = `https://api.unsplash.com/photos/random?client_id=${clientID}`;
+    let unsplashID = process.env.unsplashID;
+    let endPoint = `https://api.unsplash.com/photos/random?client_id=${unsplashID}`;
     let length = Object.keys(database.userInfo).length;
     let name = req.body.email.split("@")[0];
     name = name.charAt(0).toUpperCase() + name.slice(1);

@@ -70,18 +70,12 @@ app.get("/reminder/:id/edit", ensureAuthenticated, reminderController.edit);
 
 app.post("/reminder/", ensureAuthenticated, reminderController.create);
 
-// app.get("/adminDashboard", isAdmin,(req, res) => {
-//   res.render("adminDashboard")
-// })
-
-// Implement this yourself
 app.post(
   "/reminder/update/:id",
   ensureAuthenticated,
   reminderController.update
 );
 
-// Implement this yourself
 app.post(
   "/reminder/delete/:id",
   ensureAuthenticated,
@@ -92,7 +86,6 @@ app.get("/admin/:session", ensureAdmin, reminderController.destroy);
 
 app.get("/profile/settings", ensureAuthenticated, reminderController.settings);
 
-// Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
 app.get("/register", forwardAuthenticated, authController.register);
 app.get("/login", forwardAuthenticated, authController.login);
 app.post("/register", authController.registerSubmit);
@@ -121,11 +114,6 @@ app.post("/uploads/", async (req, res) => {
 app.get('/auth/github',
   passport.authenticate('github', { scope: [ 'user:email' ] }));
 
-// GET /auth/github/callback
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function will be called,
-//   which, in this example, will redirect the user to the home page.
 app.get('/auth/github/callback', 
 passport.authenticate('github'),
 function(req, res) {
@@ -138,4 +126,3 @@ app.listen(3001, function () {
   );
 });
 
-//, { failureRedirect: '/login' })

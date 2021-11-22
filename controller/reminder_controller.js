@@ -57,7 +57,6 @@ let remindersController = {
       completed: false,
     };
     database[user].reminders.push(reminder);
-    console.log(database[user].reminders)
     res.redirect("/reminders");
   },
 
