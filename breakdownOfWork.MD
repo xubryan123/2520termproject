@@ -60,3 +60,14 @@ I worked on the following tasks:
 1. Completed github login implementation
 2. Fixed bugs for github login working with new profile picture and admin functionality
 3. Randomized id for create function to fix duplicate id issue
+
+Week of Nov 26
+
+Jovan Sandhu:
+I worked on the following tasks:
+1. implemented PrismaClient
+2. Made creating a reminder add it into the reminder table in the database
+3. Made registering as a new user add you into the useres table in the database
+4. When viewing all reminders its loaded from database
+5. When editing a reminder load from database and replace
+6. When deleting a reminder delete from database
