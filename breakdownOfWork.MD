@@ -81,7 +81,7 @@ I worked on the following tasks:
 5. When editing a reminder load from database and replace
 6. When deleting a reminder delete from database
 
-Week of Dec !
+Week of Dec 1
 
 Bryan Xu:
 I worked on the following tasks:
